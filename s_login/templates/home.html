@@ -27,9 +27,20 @@
     
     {%endif%}
 
-<div id="map" style="width:50%;height:400px;"></div>
 <br>
-<div id="map2" style="width:50%;height:400px;"></div>
+<div id="map" style="width:50%;height:400px;"></div>
+<br><br>
+
+<!-- 썸네일 -->
+{% for blog in blog.all %}
+
+<img src="{{blog.image.url}}" width = 500>
+<br>
+{{blog.text}}
+<br><br>
+<img src="{{blog.image_thumbnail.url}}">
+{% endfor %}
+
 
 <!-- 지도의 옵션 표기 (위도,경도) -->
 <script>
@@ -70,8 +81,6 @@
     
     infowindow.open(map, marker);
 
-var map = new naver.maps.Map('map', mapOptions);
-var map = new naver.maps.Map('map2', mapOptions2);
 
 </script>
 </body>
